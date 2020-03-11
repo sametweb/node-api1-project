@@ -1,10 +1,13 @@
 const express = require("express");
 const db = require("./data/db");
+// const shortid = require("shortid"); It didn't work, I assume because ID only accepts integer, shortid generates string too
 const server = express();
+const cors = require("cors");
 
 server.listen(3000, () => console.log("listening on port 3000..."));
 
 server.use(express.json());
+server.use(cors());
 
 server.post("/api/users", (req, res) => {
   const { name, bio } = req.body;
@@ -18,12 +21,12 @@ server.post("/api/users", (req, res) => {
       .then(addedUser => {
         res.status(201).json({ newUser });
       })
-      .catch(err =>
+      .catch(err => {
         res.status(500).json({
           errorMessage:
             "There was an error while saving the user to the database."
-        })
-      );
+        });
+      });
   }
 });
 
