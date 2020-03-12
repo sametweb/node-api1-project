@@ -4,7 +4,7 @@ const db = require("./data/db");
 const server = express();
 const cors = require("cors");
 
-server.listen(3000, () => console.log("listening on port 3000..."));
+server.listen(4000, () => console.log("listening on port 4000..."));
 
 server.use(express.json());
 server.use(cors());
@@ -88,7 +88,7 @@ server.put("/api/users/:id", (req, res) => {
           ? res.status(404).json({
               message: "The user with the specified ID does not exist."
             })
-          : res.status(200).json(user);
+          : res.status(200).json({ updatedUser: user });
       })
       .catch(err =>
         res

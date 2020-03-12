@@ -1,5 +1,30 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  border-bottom: 4px solid black;
+  padding: 10px;
+}
+
+input,
+textarea,
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #e1e1e2;
+}
+
+button {
+  background: darkblue;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 0;
 }
 
 .App-logo {
@@ -26,6 +51,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px dashed black;
+}
+
+.delete {
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
