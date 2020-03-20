@@ -3,8 +3,11 @@ const db = require("./data/db");
 // const shortid = require("shortid"); It didn't work, I assume because ID only accepts integer, shortid generates string too
 const server = express();
 const cors = require("cors");
+require("dotenv").config();
 
-server.listen(4000, () => console.log("listening on port 4000..."));
+const PORT = process.env.PORT;
+
+server.listen(PORT, () => console.log("listening on port 4000..."));
 
 server.use(express.json());
 server.use(cors());
