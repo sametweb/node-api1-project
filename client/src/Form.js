@@ -16,14 +16,17 @@ const Form = props => {
     e.preventDefault();
     !userToEdit
       ? axios
-          .post("http://localhost:4000/api/users", user)
+          .post("https://samsusers.herokuapp.com/api/users", user)
           .then(res => {
             setUsers([...users, { ...res.data.newUser }]);
             setUser(INITIAL_STATE);
           })
           .catch(err => console.log(err))
       : axios
-          .put(`http://localhost:4000/api/users/${userToEdit?.id}`, user)
+          .put(
+            `https://samsusers.herokuapp.com/api/users/${userToEdit?.id}`,
+            user
+          )
           .then(res => {
             console.log(res.data);
             setUsers(

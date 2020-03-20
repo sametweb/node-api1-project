@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const PORT = process.env.PORT;
 
-server.listen(PORT, () => console.log("listening on port 4000..."));
+server.listen(PORT, () => console.log(`listening on port ${PORT}...`));
 
 server.use(express.json());
 server.use(cors());

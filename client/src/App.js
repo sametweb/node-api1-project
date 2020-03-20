@@ -8,14 +8,14 @@ function App() {
   const [userToEdit, setUserToEdit] = useState({});
   const deleteUser = id => {
     axios
-      .delete(`http://localhost:4000/api/users/${id}`)
+      .delete(`https://samsusers.herokuapp.com/api/users/${id}`)
       .then(res => setUsers(users.filter(user => user.id !== id)))
       .catch(err => console.log(err));
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/users")
+      .get("https://samsusers.herokuapp.com/api/users")
       .then(res => setUsers(res.data.users))
       .catch(err => console.log(err));
   }, []);
